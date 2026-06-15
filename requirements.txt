@@ -1,0 +1,30 @@
+# ============================================================
+# Driver & Road Safety Monitoring System
+# Requirements — install with:  pip install -r requirements.txt
+# ============================================================
+
+# Core computer vision & numerics
+opencv-python>=4.8.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Face landmark detection (driver module)
+mediapipe>=0.10.0
+
+# Text-to-speech (Windows SAPI5 — alert_system)
+pyttsx3>=2.90
+
+# Audio (optional but recommended — better beep quality)
+# If not installed, alert_system falls back to winsound (Windows built-in)
+pygame>=2.5.0
+
+# Object detection (optional — enables YOLOv11n-seg road detection)
+# Only needed if running with --enable-yolo flag
+# ultralytics>=8.0.0
+
+# ============================================================
+# Python version: 3.9 – 3.11 recommended
+# Platform      : Windows (winsound/SAPI5 TTS used for alerts)
+#                 Linux/Mac supported but audio alerts will be
+#                 limited (pygame beeps only, no TTS)
+# ============================================================
