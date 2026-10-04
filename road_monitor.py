@@ -153,7 +153,8 @@ def detect_lanes(frame: np.ndarray, road_x_start: int = 0) -> dict:
         # Confidence = proportion of long, clear lines (max 5 needed for full confidence)
         strong = sum(
             1 for l in lines
-            if abs(l[0][2] - l[0][0]) + abs(l[0][3] - l[0][1]) > LANE_MIN_LENGTH * 2
+            if abs((l[0][2] if len(l.shape) > 1 else l[2]) - (l[0][0] if len(l.shape) > 1 else l[0])) +
+               abs((l[0][3] if len(l.shape) > 1 else l[3]) - (l[0][1] if len(l.shape) > 1 else l[1])) > LANE_MIN_LENGTH * 2
         )
         lane_confidence = min(1.0, strong / 5.0)
 
