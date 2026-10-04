@@ -135,14 +135,15 @@ def detect_lanes(frame: np.ndarray, road_x_start: int = 0) -> dict:
     if lines is not None:
         left_lines, right_lines = [], []
         for line in lines:
-            x1, y1, x2, y2 = line[0]
+            line_data = line[0] if len(line.shape) > 1 else line
+            x1, y1, x2, y2 = line_data
             if x2 == x1:
                 continue
             slope = (y2 - y1) / (x2 - x1)
             if slope < -0.3 and x1 < w // 2:
-                left_lines.append(line[0])
+                left_lines.append(line_data)
             elif slope > 0.3 and x1 > w // 2:
-                right_lines.append(line[0])
+                right_lines.append(line_data)
 
         if left_lines:
             left_lane = np.mean(left_lines, axis=0)
