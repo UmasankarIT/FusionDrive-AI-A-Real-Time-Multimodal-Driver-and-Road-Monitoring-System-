@@ -1,4 +1,4 @@
-# 🚗 Integrated Driver & Road Monitoring System
+# Integrated Driver & Road Monitoring System
 
 A real-time dual-channel safety monitoring system that uses computer vision, deep learning, and temporal reasoning to detect driver fatigue and road hazards simultaneously.
 
